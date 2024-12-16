@@ -17,7 +17,10 @@ def get_review(message):
             hash_dict[h_split[0]] = h_split[1]
     key = sha256(message.text.split()[1].encode()).hexdigest()
     name = hash_dict.pop(key, None)
-    bot.send_message(message.chat.id, "You give a present to: " + name)
+    if name is not None:
+        bot.send_message(message.chat.id, "You give a present to: " + name)
+    else:
+        bot.send_message(message.chat.id, "No present found for this key; you probably already looked it up")
     with open("hash_list.txt", "w") as f:
         f.write("\n".join([k + " " + v for k, v in hash_dict.items()]))
 
