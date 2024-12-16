@@ -19,7 +19,7 @@ def get_review(message):
     name = hash_dict.pop(key, None)
     bot.send_message(message.chat.id, "You give a present to: " + name)
     with open("hash_list.txt", "w") as f:
-        f.writeh("\n".join([k + " " + v for k, v in hash_dict.items()]))
+        f.write("\n".join([k + " " + v for k, v in hash_dict.items()]))
 
 
 bot.infinity_polling()
