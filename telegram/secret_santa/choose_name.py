@@ -22,8 +22,3 @@ with open("hash_list.txt", "w") as f:
 
 for name in name_with_numbers:
     print(f"https://t.me/sams_secret_santa_bot?start={name}")
-
-h_dict = dict(zip(hash_list, shuffled_names))
-
-for name in name_with_numbers:
-    print(name, h_dict[sha256(name.encode()).hexdigest()])
