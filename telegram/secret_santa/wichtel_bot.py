@@ -6,5 +6,9 @@ with open("BOT_API", "r") as f:
 
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
+@bot.message_handler(commands=["start"])
+def get_review(message):
+    bot.send_message(message.chat.id, message.text)
+
 
 bot.infinity_polling()
